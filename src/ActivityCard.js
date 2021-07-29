@@ -8,7 +8,7 @@ export default function ActivityCard({ user_id, activity, addNoteToActivity }) {
     const renderNotes = () => {
         return (
          activity.notes.map(note => {
-             return <p>{note.content}</p>
+             return <p key={note.id}>{note.content}</p>
          } )   
         )
     }

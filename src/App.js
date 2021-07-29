@@ -11,7 +11,7 @@ const activitiesURL = `${backendURL}/activities`;
 function App() {
   
   const [activities, setActivities] = useState([])
-  const [userId, setUserId] = useState(1)
+  const [userId, setUserId] = useState(null)
 
 
   const getActivities = () => {
@@ -44,9 +44,11 @@ function App() {
       setActivities(copyOfActivities)  
     }
 
+
+    
   return (
     <div className="App">
-      <Header />
+      <Header setUserId={setUserId} />
       <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} />
     </div>
   );
