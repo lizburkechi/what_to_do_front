@@ -1,23 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Main from './Main'
+import Header from './Header';
+
+
+const backendURL = 'http://localhost:3000';
+const activitiesURL = `${backendURL}/activities`;
+
 
 function App() {
+  
+  const [activities, setActivities] = useState([])
+  const [userId, setUserId] = useState(1)
+
+
+  const getActivities = () => {
+    fetch(activitiesURL)
+    .then(resp => resp.json())
+    .then(setActivities)
+  }
+
+  useEffect(getActivities, [])
+
+  const addNoteToActivity = (note) => {
+    // console.log(activities, note)
+   
+    let foundActivity = activities.find((activity) => {
+      return activity.id === note.activity_id
+    })
+    let newNotes = [...foundActivity.notes, note]
+    let copyOfActivity = {...foundActivity, notes:newNotes }
+    replaceSingleActivity(copyOfActivity)  
+  }
+    const replaceSingleActivity = (newActivity) => {
+     let copyOfActivities = activities.map((activity) => {
+        if (activity.id === newActivity.id) {
+          return newActivity
+        }
+        else {
+          return activity
+        }
+      })
+      setActivities(copyOfActivities)  
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} />
     </div>
   );
 }
