@@ -31,7 +31,7 @@ export default function LoginForm({ setUserId }) {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='password'>password:</label>
-                    <input type='text' name='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='password' />
+                    <input type='password' name='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='password' />
                 </div>
                 <input type='submit' value='login' />
             </div>
