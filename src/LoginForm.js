@@ -3,8 +3,8 @@ import {useState} from 'react';
 
 export default function LoginForm({ setUserId }) {
 
-    const [username, setUsername] = useState('liz1')
-    const [password, setPassword] = useState('password')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault();
