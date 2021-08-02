@@ -25,6 +25,7 @@ export default function LoginForm({ setUserId }) {
         <form onSubmit={handleSubmit} >
             <div className='form-inner'>
                 <h2>Login</h2>
+                <h4>(Dont forget to log in to persist notes)</h4>
                 <div className='form-group'>
                     <label htmlFor='username'>username:</label>
                     <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder='username' />

@@ -1,17 +1,11 @@
 import React from 'react'
 import CreateNotes from './CreateNotes'
+import NotesContainer from './NotesContainer'
 
 
 
 export default function ActivityCard({ user_id, activity, addNoteToActivity }) {
 
-    const renderNotes = () => {
-        return (
-         activity.notes.map(note => {
-             return <p key={note.id}>{note.content}</p>
-         } )   
-        )
-    }
 
     return (
         <section className="activity-card">
@@ -20,8 +14,10 @@ export default function ActivityCard({ user_id, activity, addNoteToActivity }) {
                 <p>category: {activity.category}</p>
                 <p>participants: {activity.participants}</p>
                 <p>link: {activity.link}</p>
-                { renderNotes() }
                 <CreateNotes activity_id={activity.id} user_id={user_id} addNoteToActivity={addNoteToActivity} />
+            </div>
+            <div>
+            <NotesContainer activity={activity} />
             </div>        
         </section>
     )

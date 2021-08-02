@@ -7,7 +7,7 @@ export default function CreateNotes({ addNoteToActivity, activity_id, user_id })
 
     const makeNote = (e) => {
         e.preventDefault();
-     console.log(accNote)
+    //  console.log(accNote)
 
        const options = {
             method: 'POST',
@@ -26,7 +26,6 @@ export default function CreateNotes({ addNoteToActivity, activity_id, user_id })
         .then(resp => resp.json())
         .then((newNote) => {addNoteToActivity(newNote)})
         
-
     }
 
     return (
