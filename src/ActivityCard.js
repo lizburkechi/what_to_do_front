@@ -4,7 +4,7 @@ import NotesContainer from './NotesContainer'
 
 
 
-export default function ActivityCard({ user_id, activity, addNoteToActivity }) {
+export default function ActivityCard({ user_id, activity, addNoteToActivity, deleteNoteFromActivity }) {
 
 
     return (
@@ -17,7 +17,7 @@ export default function ActivityCard({ user_id, activity, addNoteToActivity }) {
                 <CreateNotes activity_id={activity.id} user_id={user_id} addNoteToActivity={addNoteToActivity} />
             </div>
             <div>
-            <NotesContainer activity={activity} />
+            <NotesContainer activity={activity} deleteNoteFromActivity={deleteNoteFromActivity} user_id={user_id} />
             </div>        
         </section>
     )

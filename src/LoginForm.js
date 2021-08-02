@@ -22,7 +22,7 @@ export default function LoginForm({ setUserId }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} >
+        <form className='login-form' onSubmit={handleSubmit} >
             <div className='form-inner'>
                 <h2>Login</h2>
                 <h4>(Dont forget to log in to persist notes)</h4>
@@ -34,7 +34,7 @@ export default function LoginForm({ setUserId }) {
                     <label htmlFor='password'>password:</label>
                     <input type='password' name='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='password' />
                 </div>
-                <input type='submit' value='login' />
+                <input className='login-button' to='/Main' type='submit' value='login' />
             </div>
         </form>
     )

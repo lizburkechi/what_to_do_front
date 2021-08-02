@@ -1,4 +1,5 @@
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Main from './Main'
 import Header from './Header';
@@ -11,7 +12,7 @@ const activitiesURL = `${backendURL}/activities`;
 function App() {
   
   const [activities, setActivities] = useState([])
-  const [userId, setUserId] = useState(null)
+  const [userId, setUserId] = useState(1)
 
 
   const getActivities = () => {
@@ -23,7 +24,6 @@ function App() {
   useEffect(getActivities, [])
 
   const addNoteToActivity = (note) => {
-    // console.log(activities, note)
    
     let foundActivity = activities.find((activity) => {
       return activity.id === note.activity_id
@@ -44,12 +44,27 @@ function App() {
       setActivities(copyOfActivities)  
     }
 
+    const deleteNoteFromActivity = (noteToDelete) => {
 
-    
+      let foundActivity = activities.find((activity) => {
+        return activity.id === noteToDelete.activity_id
+      })
+      let newNotes = [...foundActivity.notes.filter((note) => note.id !== noteToDelete.id)]
+      let copyOfActivity = {...foundActivity, notes:newNotes }
+      replaceSingleActivity(copyOfActivity)  
+  }
+   
+
   return (
     <div className="App">
+      <Switch>
+        <Route exact path='/'>
       <Header setUserId={setUserId} />
-      <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} />
+        </Route>
+        <Route exact path='/Main'>
+      <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} />
+        </Route>
+      </Switch>
     </div>
   );
 }
