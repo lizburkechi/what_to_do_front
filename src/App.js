@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Main from './Main'
 import Header from './Header';
@@ -57,14 +57,14 @@ function App() {
 
   return (
     <div className="App">
-      <Switch>
-        <Route exact path='/'>
+      {/* <Switch>
+        <Route exact path='/'> */}
       <Header setUserId={setUserId} />
-        </Route>
-        <Route exact path='/Main'>
+        {/* </Route>
+        <Route exact path='/Main'> */}
       <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} />
-        </Route>
-      </Switch>
+        {/* </Route>
+      </Switch> */}
     </div>
   );
 }
