@@ -33,7 +33,6 @@ export default function CreateNotes({ addNoteToActivity, activity_id, user_id })
             <label htmlFor='create-acessibility-note'>Add Note: </label>
                 <input 
                 type='text' 
-                id='acc-note' 
                 placeholder='note'
                 value={accNote}
                 onChange={e => setAccNote(e.target.value)} 

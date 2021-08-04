@@ -1,10 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 export default function LoginForm({ setUserId }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,26 +20,38 @@ export default function LoginForm({ setUserId }) {
             body: JSON.stringify({auth: {username, password}})
         })
         .then(response => response.json())
-        .then(json => setUserId(json.id))
+        .then(json => {
+            history.push("/main")
+            setUserId(json.id)
+        })
         // .then((response) => console.log(response))
     }
 
     return (
-        <form className='login-form' onSubmit={handleSubmit} >
-            <div className='form-inner'>
-                <h2>Login</h2>
-                <h4>(Dont forget to log in to persist notes)</h4>
-                <div className='form-group'>
-                    <label htmlFor='username'>username:</label>
-                    <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder='username' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>password:</label>
-                    <input type='password' name='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='password' />
-                </div>
-                <input className='login-button' to='/Main' type='submit' value='login' />
-            </div>
-        </form>
+        <div>
+            <h2>Please Log In</h2>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <label htmlFor='username-input'>username: </label>
+                    <input
+                    id="login-username-input" 
+                    type="text" 
+                    name="username"
+                    placeholder='username'  
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)} 
+                    />
+                    <label htmlFor='login-password-input'>password: </label>
+                    <input
+                    id="login-password-input" 
+                    type='password' 
+                    name='password'
+                    placeholder='password' 
+                    value={password}
+                    onChange={e => setPassword(e.target.value)} 
+                    />
+                    <input className='login-input' type='submit' value='Login' />  
+            </form>
+      </div>  
     )
 }
 // control username and password

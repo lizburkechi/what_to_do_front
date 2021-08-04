@@ -1,8 +1,10 @@
 import './App.css';
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Main from './Main'
-import Header from './Header';
+import Header from './Header'
+import Home from './Home';
+import Main from './Main';
+import Login from './Login';
 
 
 const backendURL = 'http://localhost:3000';
@@ -57,14 +59,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Switch>
-        <Route exact path='/'> */}
-      <Header setUserId={setUserId} />
-        {/* </Route>
-        <Route exact path='/Main'> */}
-      <Main activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} />
-        {/* </Route>
-      </Switch> */}
+      <Header />
+      <Switch>
+        <Route exact path="/" render={rp => <Home {...rp}/>} />
+        <Route path="/login" render={rp => <Login {...rp} setUserId={setUserId} />} />
+        <Route exact path="/main" render={rp => <Main {...rp} activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} />} />
+      </Switch>
     </div>
   );
 }

@@ -1,11 +1,9 @@
 import React from 'react'
-import LoginForm from './LoginForm'
 
-export default function Header({ setUserId }) {
+export default function Header() {
     return (
-        <header>
-            <h1>Header</h1>
-            <LoginForm setUserId={setUserId} />
-        </header>
+        <div>
+            <h1>AccessAssured</h1>
+        </div>
     )
 }
