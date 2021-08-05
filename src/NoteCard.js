@@ -9,14 +9,12 @@ export default function NoteCard({ note, deleteNoteFromActivity, user_id }) {
         })
         .then(resp => resp.json())
         .then((deletedNote) => {deleteNoteFromActivity(deletedNote)})
-        // deleteNoteFromActivity();
       }
     return (
         <section>
             <div className='note-card'>
-                <p>{note.content}</p>
-                <p>@{note.username}</p>
-                {user_id === note.user_id ? <button onClick={deleteNote}>x</button> : null}
+                <h5>{note.content}  @{note.username}</h5>
+                {user_id === note.user_id ? <button className="delete-btn" onClick={deleteNote}>remove</button> : null}
             </div>
         </section>
     )

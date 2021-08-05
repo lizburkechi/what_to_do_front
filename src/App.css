@@ -1,46 +1,34 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #FFFAF0;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #5F9EA0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-form {
+  background-color: white;
 }
 
-.note-info {
-  height: 300px;
-  width: 300px;
+.login-page {
+ background-color: #FFFAF0;
+}
 
+.about {
+  display: flex;
+  border: solid;
+  overflow-wrap: normal;
+  width: 400px;
+  margin: 0 auto;
+  border-width: thin;
+  background-color: #F0FFFF;
+  
+}
+.key {
+  height: 100px;
+  width: 100px;
+  transform: scaleY(-1, -1);
 }
 
 .login-form {
@@ -54,4 +42,104 @@
 
 form input{
     margin: 10px;
+}
+
+.activity-card {
+  display: grid;
+  
+}
+
+.header {
+  background: #20B2AA;
+  padding-bottom: 5px;
+  border: solid;
+  border-color: #FFFAF0;
+  border-width: thick;
+  height: 125px;
+}
+
+.search-bar {
+  margin: 0 auto;
+  width: 250px;
+  padding-top: 2rem;
+
+}
+
+.button {
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+  justify-self: center;
+  margin-right: 10px;
+  position: relative;
+  background-color: black;
+}
+
+.delete-btn {
+  position: relative;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  height: 1.5rem;
+  width: max-content;
+  color: white;
+  font-size: 12px;
+  justify-self: center;
+  margin-bottom: 10px;
+
+}
+
+.note-card {
+  border: solid;
+  overflow-wrap: normal;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 3px;
+  border-width: thin;
+  background-color: #F0FFFF;
+
+}
+
+.activity-card {
+  border: solid;
+  overflow-wrap: normal;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  border-width: thin;
+  background-color: #FFDAB9;
+}
+
+.title {
+  font-style: italic;
+  font-size: 400%
+}
+
+.create-notes {
+  margin: 0 auto;
+  width: 400px;
+  margin-bottom: 3%;
+}
+
+.sub-button {
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  height: 2rem;
+  width: max-content;
+  color: white;
+  font-size: 14px;
+  justify-self: center;
+  margin-top: 5%;
+}
+
+
+.add-note {
+  margin-bottom: 5%;
 }

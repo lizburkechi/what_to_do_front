@@ -1,5 +1,7 @@
 import React from 'react'
 import {useState} from 'react';
+import { Form} from 'semantic-ui-react'
+
 
 export default function CreateNotes({ addNoteToActivity, activity_id, user_id }) {
 
@@ -7,7 +9,10 @@ export default function CreateNotes({ addNoteToActivity, activity_id, user_id })
 
     const makeNote = (e) => {
         e.preventDefault();
-    //  console.log(accNote)
+
+        setAccNote (
+            ""
+        )
 
        const options = {
             method: 'POST',
@@ -29,15 +34,18 @@ export default function CreateNotes({ addNoteToActivity, activity_id, user_id })
     }
 
     return (
-        <form className='create-notes' onSubmit={makeNote}>
-            <label htmlFor='create-acessibility-note'>Add Note: </label>
-                <input 
-                type='text' 
-                placeholder='note'
-                value={accNote}
-                onChange={e => setAccNote(e.target.value)} 
-                />
-                <input type='submit' value='submit' />
-        </form>
+        <Form className='create-notes' onSubmit={makeNote}>
+            <Form.Field>
+                    <label htmlFor='create-acessibility-note'>Add Note: </label>
+                        <input 
+                        type='text' 
+                        placeholder='note'
+                        value={accNote}
+                        onChange={e => setAccNote(e.target.value)} 
+                        />
+                    <input value ='submit'
+                        style={{backgroundColor: '#D9C5A6', color: 'black'}} className="sub-button" type='submit'/>
+            </Form.Field>
+        </Form>
     )
 }

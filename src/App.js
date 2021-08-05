@@ -5,6 +5,7 @@ import Header from './Header'
 import Home from './Home';
 import Main from './Main';
 import Login from './Login';
+import 'semantic-ui-css/semantic.min.css'
 
 
 const backendURL = 'http://localhost:3000';
@@ -15,6 +16,7 @@ function App() {
   
   const [activities, setActivities] = useState([])
   const [userId, setUserId] = useState(1)
+  const [buttonSearch, setButtonSearch] = useState('all')
 
 
   const getActivities = () => {
@@ -63,7 +65,7 @@ function App() {
       <Switch>
         <Route exact path="/" render={rp => <Home {...rp}/>} />
         <Route path="/login" render={rp => <Login {...rp} setUserId={setUserId} />} />
-        <Route exact path="/main" render={rp => <Main {...rp} activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} />} />
+        <Route exact path="/main" render={rp => <Main {...rp} activities={activities} user_id={userId} addNoteToActivity={addNoteToActivity} deleteNoteFromActivity={deleteNoteFromActivity} setButtonSearch={setButtonSearch} buttonSearch={buttonSearch} />} />
       </Switch>
     </div>
   );

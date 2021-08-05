@@ -24,7 +24,7 @@ export default function LoginForm({ setUserId }) {
             history.push("/main")
             setUserId(json.id)
         })
-        // .then((response) => console.log(response))
+      
     }
 
     return (

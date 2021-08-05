@@ -3,8 +3,8 @@ import LoginForm from './LoginForm'
 
 export default function Login({ setUserId }) {
     return (
-        <header>
+        <section className='login-page'>
             <LoginForm setUserId={setUserId} />
-        </header>
+        </section>
     )
 }

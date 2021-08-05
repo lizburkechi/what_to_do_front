@@ -20,8 +20,8 @@ export default function ActivityCard({ user_id, activity, addNoteToActivity, del
                 ) : null}
             </div>
             <div>
-                <CreateNotes activity_id={activity.id} user_id={user_id} addNoteToActivity={addNoteToActivity} />
                 <NotesContainer activity={activity} deleteNoteFromActivity={deleteNoteFromActivity} user_id={user_id} />
+                <CreateNotes activity_id={activity.id} user_id={user_id} addNoteToActivity={addNoteToActivity} />
             </div>        
         </section>
     )
